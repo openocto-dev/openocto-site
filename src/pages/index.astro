@@ -388,7 +388,7 @@ const posts = (await getCollection('blog')).sort((a, b) => new Date(b.data.date)
     background: linear-gradient(
       to bottom,
       rgba(11, 20, 38, 0.7) 0%,
-      rgba(11, 20, 38, 0.85) 50%,
+      rgba(11, 20, 38, 0.85) 80%,
       var(--bg) 100%
     );
   }
@@ -499,7 +499,22 @@ const posts = (await getCollection('blog')).sort((a, b) => new Date(b.data.date)
 
   /* Features */
   .features-section {
+    position: relative;
     background: var(--navy-dark);
+  }
+
+  .features-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url('/images/hero-banner-servers.jpg') center/cover no-repeat;
+    opacity: 0.3;
+    z-index: 0;
+  }
+
+  .features-section .container {
+    position: relative;
+    z-index: 1;
   }
 
   .features-grid {
@@ -814,7 +829,22 @@ const posts = (await getCollection('blog')).sort((a, b) => new Date(b.data.date)
 
   /* Community */
   .community-section {
-    background: linear-gradient(180deg, var(--bg) 0%, var(--navy-dark) 100%);
+    position: relative;
+    background: var(--navy-dark);
+  }
+
+  .community-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url('/images/hero-banner-ship.jpg') center/cover no-repeat;
+    opacity: 0.3;
+    z-index: 0;
+  }
+
+  .community-section .container {
+    position: relative;
+    z-index: 1;
   }
 
   .community-grid {
