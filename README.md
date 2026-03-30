@@ -41,3 +41,10 @@ All commands are run from the root of the project, from a terminal:
 ## 👀 Want to learn more?
 
 Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+
+"OpenOcto" name, logo, mascot, and persona character designs 
+are trademarks and copyrighted works of the OpenOcto project author. 
+All character artwork © 2026 OpenOcto Contributors. All rights reserved.
+Use of these assets for merchandise, commercial products, 
+or derivative works requires written permission.
+Contact: info@openocto.dev

@@ -111,7 +111,3 @@ npm run dev      # Dev server
 npm run build    # Production build → dist/
 npm run preview  # Preview production build
 ```
-
-## Author
-
-[Rocket Dev](https://rocketdev.tech)

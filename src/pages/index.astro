@@ -16,7 +16,53 @@ const posts = (await getCollection('blog')).sort((a, b) => new Date(b.data.date)
   </div>
   <div class="container hero-content">
     <div class="hero-badge">Open Source &middot; Free for Personal Use</div>
-    <h1>Build Your Own<br /><span class="accent-coral">AI Assistant</span><br />with <span class="accent-teal">Personality</span></h1>
+    <h1>
+      Build Your Own
+      <span class="hero-sparkle-wrap">
+        <svg id="ai-sparkle-svg" aria-label="AI Assistant" viewBox="0 0 540 82" xmlns="http://www.w3.org/2000/svg" style="overflow:visible;">
+          <defs>
+            <filter id="sparkle-glow-ai" x="-200%" y="-500%" width="500%" height="1100%">
+              <feGaussianBlur in="SourceGraphic" stdDeviation="2" result="b1"/>
+              <feGaussianBlur in="SourceGraphic" stdDeviation="7" result="b2"/>
+              <feGaussianBlur in="SourceGraphic" stdDeviation="16" result="b3"/>
+              <feMerge>
+                <feMergeNode in="b3"/>
+                <feMergeNode in="b2"/>
+                <feMergeNode in="b1"/>
+                <feMergeNode in="SourceGraphic"/>
+              </feMerge>
+            </filter>
+            <filter id="trail-glow-ai" x="-100%" y="-200%" width="300%" height="500%">
+              <feGaussianBlur in="SourceGraphic" stdDeviation="5" result="b"/>
+              <feMerge>
+                <feMergeNode in="b"/>
+                <feMergeNode in="SourceGraphic"/>
+              </feMerge>
+            </filter>
+          </defs>
+          <text id="ai-base" x="270" y="68"
+                text-anchor="middle"
+                font-family="Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, sans-serif"
+                font-weight="900" font-size="72" letter-spacing="-2"
+                fill="#ff6b6b">AI Assistant</text>
+          <text id="ai-trail" x="270" y="68"
+                text-anchor="middle"
+                font-family="Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, sans-serif"
+                font-weight="900" font-size="72" letter-spacing="-2"
+                fill="none" stroke="rgba(255,180,80,0.8)" stroke-width="3"
+                stroke-linecap="round"
+                filter="url(#trail-glow-ai)">AI Assistant</text>
+          <text id="ai-lead" x="270" y="68"
+                text-anchor="middle"
+                font-family="Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, sans-serif"
+                font-weight="900" font-size="72" letter-spacing="-2"
+                fill="none" stroke="rgba(255,255,255,0.95)" stroke-width="2"
+                stroke-linecap="round"
+                filter="url(#sparkle-glow-ai)">AI Assistant</text>
+        </svg>
+      </span>
+      with <span class="accent-teal">Personality</span>
+    </h1>
     <p class="hero-text">
       Open-source constructor for personal AI assistants with voice control,
       persona system, and full local privacy. Choose character, voice, and brain — run it on your hardware.
@@ -386,6 +432,13 @@ const posts = (await getCollection('blog')).sort((a, b) => new Date(b.data.date)
         <h3>Telegram</h3>
         <p>Russian-speaking community channel</p>
       </a>
+      <a href="mailto:info@openocto.dev" class="community-card">
+        <div class="community-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+        </div>
+        <h3>Contact</h3>
+        <p>Questions, partnerships, commercial licensing</p>
+      </a>
     </div>
     <div class="community-cta">
       <p>Built with love by <a href={LINKS.rocketdev} target="_blank" rel="noopener">Rocket Dev</a></p>
@@ -456,6 +509,29 @@ const posts = (await getCollection('blog')).sort((a, b) => new Date(b.data.date)
 
   .accent-coral { color: var(--coral); }
   .accent-teal { color: var(--teal); }
+
+  .hero-sparkle-wrap {
+    display: block;
+    line-height: 1;
+    margin: 0.05em 0;
+  }
+
+  #ai-sparkle-svg {
+    display: block;
+    width: 100%;
+    max-width: 420px;
+    height: auto;
+    margin: 0 auto;
+  }
+
+  @keyframes ai-sparkle-run {
+    from { stroke-dashoffset: 0; }
+    to   { stroke-dashoffset: var(--ai-cycle); }
+  }
+
+  #ai-trail, #ai-lead {
+    animation: ai-sparkle-run var(--ai-dur) linear infinite;
+  }
 
   .hero-text {
     color: var(--text-muted);
@@ -905,10 +981,7 @@ const posts = (await getCollection('blog')).sort((a, b) => new Date(b.data.date)
 
   .community-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    max-width: 720px;
-    margin-left: auto;
-    margin-right: auto;
+    grid-template-columns: repeat(3, 1fr);
     gap: 24px;
     margin-bottom: 40px;
   }
@@ -1090,3 +1163,34 @@ const posts = (await getCollection('blog')).sort((a, b) => new Date(b.data.date)
     }
   }
 </style>
+
+<script is:inline>
+  function initAISparkle() {
+    var base  = document.getElementById('ai-base');
+    var trail = document.getElementById('ai-trail');
+    var lead  = document.getElementById('ai-lead');
+    if (!base || !trail || !lead) return;
+
+    var bbox   = base.getBBox();
+    var n      = base.textContent.trim().length;
+    var avgW   = bbox.width / n;
+    var h      = bbox.height;
+    var pathLen = Math.round(2 * (avgW + h) * n * 0.85);
+    var cycle  = Math.round(pathLen * 1.02);
+    var dur    = 7;
+
+    trail.style.strokeDasharray = '65 ' + (cycle - 65);
+    trail.style.setProperty('--ai-cycle', -cycle + 'px');
+    trail.style.setProperty('--ai-dur', dur + 's');
+
+    lead.style.strokeDasharray = '14 ' + (cycle - 14);
+    lead.style.setProperty('--ai-cycle', -cycle + 'px');
+    lead.style.setProperty('--ai-dur', dur + 's');
+  }
+
+  if (document.fonts) {
+    document.fonts.ready.then(initAISparkle);
+  } else {
+    window.addEventListener('load', initAISparkle);
+  }
+</script>
