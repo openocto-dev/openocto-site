@@ -15,7 +15,7 @@ const posts = (await getCollection('blog')).sort((a, b) => new Date(b.data.date)
     <div class="hero-overlay"></div>
   </div>
   <div class="container hero-content">
-    <div class="hero-badge">Open Source &middot; MIT License</div>
+    <div class="hero-badge">Open Source &middot; Free for Personal Use</div>
     <h1>Build Your Own<br /><span class="accent-coral">AI Assistant</span><br />with <span class="accent-teal">Personality</span></h1>
     <p class="hero-text">
       Open-source constructor for personal AI assistants with voice control,
@@ -295,6 +295,73 @@ const posts = (await getCollection('blog')).sort((a, b) => new Date(b.data.date)
           <li>Multi-room audio</li>
           <li>Kids mode & sound monitoring</li>
         </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Recommended Setup -->
+<section id="setup" class="setup-section">
+  <div class="container setup-container">
+    <div class="setup-image">
+      <img src="/images/hero-banner-macmini.jpg" alt="OpenOcto running on Mac Mini" />
+    </div>
+    <div class="setup-content">
+      <div class="setup-badge">Recommended Setup</div>
+      <h2>Your always-on AI home hub</h2>
+      <p>
+        Runs 24/7 on a Mac Mini. Silent. ~$10/year in electricity.
+        Always listening, always local, always yours.
+      </p>
+      <ul class="setup-list">
+        <li>Mac Mini M2 or M4 — compact, fanless-quiet, powerful enough for Whisper medium</li>
+        <li>Plug in a USB microphone — or use a smart speaker as input</li>
+        <li>Connect to your TV or speakers for voice output</li>
+        <li>Install OpenOcto — say "Hey Octo" and you're done</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- Quick Start -->
+<section id="quickstart" class="quickstart-section">
+  <div class="container">
+    <h2 class="section-title">Quick Start</h2>
+    <p class="section-subtitle">From zero to your own AI assistant in three commands</p>
+    <div class="code-block">
+      <pre><code><span class="comment"># 1. Install</span>
+pip install openocto
+
+<span class="comment"># 2. Launch setup wizard (opens localhost:3000)</span>
+openocto setup
+
+<span class="comment"># 3. Or quick start from terminal</span>
+openocto start --persona hestia --ai claude</code></pre>
+    </div>
+    <div class="quickstart-remark">
+      <span class="remark-icon">🖥️</span>
+      <p>
+        The setup wizard runs at <strong>localhost:3000</strong> — choose your persona, voice,
+        AI engine, and wake word through a beautiful web interface.
+        No config files needed.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Setup Wizard -->
+<section id="wizard" class="wizard-section">
+  <div class="container">
+    <h2 class="section-title">Visual Setup Wizard</h2>
+    <p class="section-subtitle">Not another CLI tool. A real visual experience — because your assistant should feel personal from the first minute.</p>
+    <div class="wizard-screenshots">
+      <div class="wizard-screenshot">
+        <div class="screenshot-label">Step 1 — Choose your persona</div>
+        <img src="/images/hero-banner-webadmin1.jpg" alt="OpenOcto setup wizard — choose persona" />
+      </div>
+      <div class="wizard-screenshot">
+        <div class="screenshot-label">Step 2 — Configure voice & wake word</div>
+        <img src="/images/hero-banner-webadmin2.jpg" alt="OpenOcto setup wizard — configure voice" />
       </div>
     </div>
   </div>
@@ -890,6 +957,169 @@ const posts = (await getCollection('blog')).sort((a, b) => new Date(b.data.date)
     font-size: 1rem;
   }
 
+  /* Recommended Setup */
+  .setup-section {
+    background: var(--navy-dark);
+  }
+
+  .setup-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: center;
+  }
+
+  .setup-image img {
+    width: 100%;
+    border-radius: 20px;
+    box-shadow: 0 24px 64px rgba(0, 0, 0, 0.5);
+  }
+
+  .setup-badge {
+    display: inline-block;
+    background: rgba(79, 209, 197, 0.15);
+    color: var(--teal);
+    padding: 5px 14px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    border: 1px solid rgba(79, 209, 197, 0.3);
+  }
+
+  .setup-content h2 {
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: 16px;
+  }
+
+  .setup-content > p {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: 28px;
+  }
+
+  .setup-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .setup-list li {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    padding-left: 24px;
+    position: relative;
+    line-height: 1.5;
+  }
+
+  .setup-list li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--teal);
+    font-weight: 700;
+  }
+
+  /* Quick Start */
+  .quickstart-section {
+    background: var(--bg);
+  }
+
+  .code-block {
+    background: #0a0f1e;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 32px 36px;
+    max-width: 680px;
+    margin: 0 auto 32px;
+    overflow-x: auto;
+  }
+
+  .code-block pre {
+    margin: 0;
+    font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', 'Menlo', monospace;
+    font-size: 0.95rem;
+    line-height: 1.8;
+    color: var(--text);
+  }
+
+  .code-block code .comment {
+    color: #4a6fa5;
+  }
+
+  .quickstart-remark {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    max-width: 680px;
+    margin: 0 auto;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px 24px;
+  }
+
+  .remark-icon {
+    font-size: 1.5rem;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .quickstart-remark p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin: 0;
+  }
+
+  .quickstart-remark strong {
+    color: var(--teal);
+  }
+
+  /* Setup Wizard */
+  .wizard-section {
+    background: var(--navy-dark);
+  }
+
+  .wizard-screenshots {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+
+  .wizard-screenshot {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .screenshot-label {
+    text-align: center;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--teal);
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 6px 14px;
+    align-self: center;
+  }
+
+  .wizard-screenshot img {
+    width: 100%;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s;
+  }
+
+  .wizard-screenshot img:hover {
+    transform: scale(1.02);
+  }
+
   /* Responsive */
   @media (max-width: 1024px) {
     .features-grid, .personas-grid, .community-grid, .blog-grid {
@@ -913,6 +1143,13 @@ const posts = (await getCollection('blog')).sort((a, b) => new Date(b.data.date)
       align-items: center;
     }
     .about-grid, .features-grid, .personas-grid, .community-grid, .blog-grid, .roadmap-grid {
+      grid-template-columns: 1fr;
+    }
+    .setup-container {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+    .wizard-screenshots {
       grid-template-columns: 1fr;
     }
   }
