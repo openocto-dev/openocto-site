@@ -1,0 +1,889 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+import { LINKS } from '../consts';
+
+const posts = (await getCollection('blog')).sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime()).slice(0, 3);
+---
+
+<BaseLayout title="OpenOcto — Open-Source Personal AI Assistant Constructor">
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-bg">
+    <img src="/images/hero-banner.jpg" alt="" />
+    <div class="hero-overlay"></div>
+  </div>
+  <div class="container hero-content">
+    <div class="hero-badge">Open Source &middot; MIT License</div>
+    <h1>Build Your Own<br /><span class="accent-coral">AI Assistant</span><br />with <span class="accent-teal">Personality</span></h1>
+    <p class="hero-text">
+      Open-source constructor for personal AI assistants with voice control,
+      persona system, and full local privacy. Choose character, voice, and brain — run it on your hardware.
+    </p>
+    <div class="hero-buttons">
+      <a href={LINKS.github} class="btn btn-primary" target="_blank" rel="noopener">
+        Get Started
+      </a>
+      <a href="#how-it-works" class="btn btn-secondary">
+        See How It Works
+      </a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><strong>100%</strong><span>Local Voice</span></div>
+      <div class="stat"><strong>6+</strong><span>Personas</span></div>
+      <div class="stat"><strong>5+</strong><span>AI Backends</span></div>
+      <div class="stat"><strong>3</strong><span>Platforms</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- What is OpenOcto -->
+<section id="about">
+  <div class="container">
+    <h2 class="section-title">What is OpenOcto?</h2>
+    <p class="section-subtitle">
+      The era of smart speakers is evolving. Take back control of your AI assistant.
+    </p>
+    <div class="about-grid">
+      <div class="about-card">
+        <div class="about-icon">🎙️</div>
+        <h3>Voice-First</h3>
+        <p>Full voice pipeline — wake word, VAD, speech-to-text, text-to-speech — all running locally on your device. No audio ever leaves your machine.</p>
+      </div>
+      <div class="about-card">
+        <div class="about-icon">🧩</div>
+        <h3>Modular Design</h3>
+        <p>Every component is replaceable. Swap wake word engines, STT models, TTS voices, and AI backends independently. Your assistant, your rules.</p>
+      </div>
+      <div class="about-card">
+        <div class="about-icon">🐙</div>
+        <h3>Persona System</h3>
+        <p>Like creating a character in an RPG — pick personality, voice, skills, and appearance. Six built-in personas or create your own.</p>
+      </div>
+      <div class="about-card">
+        <div class="about-icon">🔒</div>
+        <h3>Privacy by Design</h3>
+        <p>All audio processing happens locally. The only external connection is the AI text API — and even that is optional with Ollama.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Features -->
+<section id="features" class="features-section">
+  <div class="container">
+    <h2 class="section-title">Features</h2>
+    <p class="section-subtitle">Everything you need for a personal AI assistant that respects your privacy</p>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">🗣️</div>
+        <h3>Local Wake Word</h3>
+        <p>OpenWakeWord detection — each persona has its own activation phrase. "Hey Hestia", "Hey Argus", or custom.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🎧</div>
+        <h3>whisper.cpp STT</h3>
+        <p>Fast local transcription with excellent multilingual support. Optimized for Apple Silicon and modern CPUs.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🔊</div>
+        <h3>Piper / Silero TTS</h3>
+        <p>Natural-sounding voices with per-persona configuration. Adjust speed, tone, and personality.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🤖</div>
+        <h3>Multi-Backend AI</h3>
+        <p>Claude, OpenAI, Ollama, Gonka, or OpenClaw. Switch providers without changing anything else.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📱</div>
+        <h3>Mobile App</h3>
+        <p>React Native companion app — remote control, push notifications, status dashboard, media control.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🏠</div>
+        <h3>Smart Home</h3>
+        <p>Home Assistant integration. Control lights, temperature, scenes — all by voice.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">✈️</div>
+        <h3>Telegram Bot</h3>
+        <p>Free remote access via Telegram. Send commands and receive notifications from anywhere.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🧙</div>
+        <h3>Setup Wizard</h3>
+        <p>Visual browser-based wizard guides you through persona selection, voice config, and AI backend setup.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🌐</div>
+        <h3>Offline Mode</h3>
+        <p>Fully autonomous with Ollama + local LLM. Perfect for remote locations with unstable internet.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Personas -->
+<section id="personas" class="personas-section">
+  <div class="container">
+    <h2 class="section-title">Meet the Personas</h2>
+    <p class="section-subtitle">Choose a character that fits your needs — or create your own</p>
+    <div class="personas-grid">
+      <div class="persona-card">
+        <div class="persona-emoji">🔥</div>
+        <h3>Hestia</h3>
+        <p class="persona-role">Home Keeper</p>
+        <p>Warm, caring, patient. The goddess of the hearth, welcoming and nurturing. Perfect for family and daily tasks.</p>
+        <div class="persona-tags">
+          <span>Family</span><span>Home</span><span>Daily</span>
+        </div>
+      </div>
+      <div class="persona-card">
+        <div class="persona-emoji">🧠</div>
+        <h3>Metis</h3>
+        <p class="persona-role">Strategic Advisor</p>
+        <p>Smart, concise, strategic. The goddess of wise counsel who always knows the right move. For planning and analytics.</p>
+        <div class="persona-tags">
+          <span>Business</span><span>Analytics</span><span>Planning</span>
+        </div>
+      </div>
+      <div class="persona-card">
+        <div class="persona-emoji">📚</div>
+        <h3>Nestor</h3>
+        <p class="persona-role">Wise Mentor</p>
+        <p>Patient, thorough, educated. A sage from the Iliad. Great for education, children, and detailed explanations.</p>
+        <div class="persona-tags">
+          <span>Education</span><span>Kids</span><span>Learning</span>
+        </div>
+      </div>
+      <div class="persona-card">
+        <div class="persona-emoji">🫖</div>
+        <h3>Sofia</h3>
+        <p class="persona-role">Companion</p>
+        <p>Empathetic, soft, supportive. "Wisdom" in Greek. Your thoughtful companion for reflection and planning.</p>
+        <div class="persona-tags">
+          <span>Reflection</span><span>Support</span><span>Planning</span>
+        </div>
+      </div>
+      <div class="persona-card">
+        <div class="persona-emoji">👁️</div>
+        <h3>Argus</h3>
+        <p class="persona-role">Guardian</p>
+        <p>Serious, attentive, concise. The all-seeing mythological watchman. For security and home monitoring.</p>
+        <div class="persona-tags">
+          <span>Security</span><span>Monitoring</span><span>Smart Home</span>
+        </div>
+      </div>
+      <div class="persona-card persona-card-create">
+        <div class="persona-emoji">✨</div>
+        <h3>Create Your Own</h3>
+        <p class="persona-role">Custom Persona</p>
+        <p>Define personality, voice, skills, and system prompt. Package it as YAML + markdown — share with the community.</p>
+        <div class="persona-tags">
+          <span>Custom</span><span>Community</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- How It Works -->
+<section id="how-it-works">
+  <div class="container">
+    <h2 class="section-title">How It Works</h2>
+    <p class="section-subtitle">From wake word to spoken response — entirely on your device</p>
+    <div class="pipeline">
+      <div class="pipeline-step">
+        <div class="step-number">1</div>
+        <div class="step-content">
+          <h3>Wake Word</h3>
+          <p>OpenWakeWord listens for the persona's activation phrase. Always-on, always local.</p>
+          <span class="step-tech">OpenWakeWord</span>
+        </div>
+      </div>
+      <div class="pipeline-arrow">&darr;</div>
+      <div class="pipeline-step">
+        <div class="step-number">2</div>
+        <div class="step-content">
+          <h3>Recording + VAD</h3>
+          <p>Silero VAD monitors for speech. Stops recording after 3-4 seconds of silence.</p>
+          <span class="step-tech">Silero VAD</span>
+        </div>
+      </div>
+      <div class="pipeline-arrow">&darr;</div>
+      <div class="pipeline-step">
+        <div class="step-number">3</div>
+        <div class="step-content">
+          <h3>Transcription</h3>
+          <p>whisper.cpp transcribes speech to text locally. Fast on Apple Silicon.</p>
+          <span class="step-tech">whisper.cpp</span>
+        </div>
+      </div>
+      <div class="pipeline-arrow">&darr;</div>
+      <div class="pipeline-step">
+        <div class="step-number">4</div>
+        <div class="step-content">
+          <h3>AI Processing</h3>
+          <p>Text is sent to the selected AI backend with the persona's system prompt.</p>
+          <span class="step-tech">Claude / Ollama / OpenClaw</span>
+        </div>
+      </div>
+      <div class="pipeline-arrow">&darr;</div>
+      <div class="pipeline-step">
+        <div class="step-number">5</div>
+        <div class="step-content">
+          <h3>Voice Response</h3>
+          <p>TTS converts the response to speech using the persona's configured voice. Streamed sentence-by-sentence.</p>
+          <span class="step-tech">Piper TTS</span>
+        </div>
+      </div>
+    </div>
+    <div class="latency-note">
+      <strong>~5-8 seconds</strong> total perceived latency with streaming TTS
+    </div>
+  </div>
+</section>
+
+<!-- Roadmap -->
+<section id="roadmap" class="roadmap-section">
+  <div class="container">
+    <h2 class="section-title">Roadmap</h2>
+    <p class="section-subtitle">Building the future of personal AI assistants, one phase at a time</p>
+    <div class="roadmap-grid">
+      <div class="roadmap-phase active">
+        <div class="phase-badge">Phase 1</div>
+        <h3>MVP</h3>
+        <ul>
+          <li>Voice pipeline (wake word &rarr; VAD &rarr; STT &rarr; AI &rarr; TTS)</li>
+          <li>Standalone mode (direct AI API)</li>
+          <li>CLI interface</li>
+          <li>Default persona (Octo)</li>
+          <li>YAML configuration</li>
+        </ul>
+      </div>
+      <div class="roadmap-phase">
+        <div class="phase-badge">Phase 2</div>
+        <h3>Personas & Wizard</h3>
+        <ul>
+          <li>Persona Manager</li>
+          <li>6 built-in personas</li>
+          <li>Setup Wizard (React)</li>
+          <li>Web Dashboard</li>
+          <li>REST API & OpenClaw Gateway</li>
+        </ul>
+      </div>
+      <div class="roadmap-phase">
+        <div class="phase-badge">Phase 3</div>
+        <h3>Mobile App</h3>
+        <ul>
+          <li>React Native (iOS + Android)</li>
+          <li>Push notifications</li>
+          <li>Voice commands from app</li>
+          <li>Status dashboard</li>
+          <li>Tailscale integration</li>
+        </ul>
+      </div>
+      <div class="roadmap-phase">
+        <div class="phase-badge">Phase 4</div>
+        <h3>Ecosystem</h3>
+        <ul>
+          <li>Persona marketplace</li>
+          <li>Community personas & skills</li>
+          <li>Speaker ID</li>
+          <li>Multi-room audio</li>
+          <li>Kids mode & sound monitoring</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Blog -->
+<section id="blog">
+  <div class="container">
+    <h2 class="section-title">Blog</h2>
+    <p class="section-subtitle">Updates, guides, and insights from the OpenOcto project</p>
+    <div class="blog-grid">
+      {posts.map(post => (
+        <a href={`/blog/${post.id}`} class="blog-card">
+          <div class="blog-card-content">
+            <time datetime={post.data.date}>
+              {new Date(post.data.date).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}
+            </time>
+            <h3>{post.data.title}</h3>
+            <p>{post.data.description}</p>
+          </div>
+        </a>
+      ))}
+    </div>
+    <div class="blog-cta">
+      <a href="/blog" class="btn btn-secondary">View All Posts</a>
+    </div>
+  </div>
+</section>
+
+<!-- Community -->
+<section id="community" class="community-section">
+  <div class="container">
+    <h2 class="section-title">Join the Community</h2>
+    <p class="section-subtitle">OpenOcto is built by the community, for the community</p>
+    <div class="community-grid">
+      <a href={LINKS.github} target="_blank" rel="noopener" class="community-card">
+        <div class="community-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+        </div>
+        <h3>GitHub</h3>
+        <p>Star the repo, report issues, submit PRs</p>
+      </a>
+      <a href={LINKS.discord} target="_blank" rel="noopener" class="community-card">
+        <div class="community-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.37a19.791 19.791 0 00-4.885-1.515.074.074 0 00-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 00-5.487 0 12.64 12.64 0 00-.617-1.25.077.077 0 00-.079-.037A19.736 19.736 0 003.677 4.37a.07.07 0 00-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 00.031.057 19.9 19.9 0 005.993 3.03.078.078 0 00.084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 00-.041-.106 13.107 13.107 0 01-1.872-.892.077.077 0 01-.008-.128 10.2 10.2 0 00.372-.292.074.074 0 01.077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 01.078.01c.12.098.246.198.373.292a.077.077 0 01-.006.127 12.299 12.299 0 01-1.873.892.077.077 0 00-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 00.084.028 19.839 19.839 0 006.002-3.03.077.077 0 00.032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 00-.031-.03z"/></svg>
+        </div>
+        <h3>Discord</h3>
+        <p>Chat with developers and users</p>
+      </a>
+      <a href={LINKS.telegram} target="_blank" rel="noopener" class="community-card">
+        <div class="community-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 000 12a12 12 0 0012 12 12 12 0 0012-12A12 12 0 0012 0h-.056zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 01.171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.479.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+        </div>
+        <h3>Telegram</h3>
+        <p>Russian-speaking community channel</p>
+      </a>
+    </div>
+    <div class="community-cta">
+      <p>Built with love by <a href={LINKS.rocketdev} target="_blank" rel="noopener">Rocket Dev</a></p>
+    </div>
+  </div>
+</section>
+
+</BaseLayout>
+
+<style>
+  /* Hero */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding-top: 80px;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+
+  .hero-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(11, 20, 38, 0.7) 0%,
+      rgba(11, 20, 38, 0.85) 50%,
+      var(--bg) 100%
+    );
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding: 60px 24px;
+  }
+
+  .hero-badge {
+    display: inline-block;
+    background: rgba(79, 209, 197, 0.15);
+    color: var(--teal);
+    padding: 6px 18px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 28px;
+    border: 1px solid rgba(79, 209, 197, 0.3);
+  }
+
+  .hero h1 {
+    font-size: 4rem;
+    font-weight: 900;
+    line-height: 1.15;
+    margin-bottom: 24px;
+  }
+
+  .accent-coral { color: var(--coral); }
+  .accent-teal { color: var(--teal); }
+
+  .hero-text {
+    color: var(--text-muted);
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto 36px;
+    line-height: 1.7;
+  }
+
+  .hero-buttons {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    margin-bottom: 60px;
+  }
+
+  .hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 48px;
+  }
+
+  .stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .stat strong {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--teal);
+  }
+
+  .stat span {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+  }
+
+  /* About */
+  .about-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+
+  .about-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 32px;
+    transition: all 0.3s;
+  }
+
+  .about-card:hover {
+    background: var(--bg-card-hover);
+    transform: translateY(-4px);
+    border-color: var(--teal-dark);
+  }
+
+  .about-icon {
+    font-size: 2rem;
+    margin-bottom: 16px;
+  }
+
+  .about-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+  }
+
+  .about-card p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+  }
+
+  /* Features */
+  .features-section {
+    background: var(--navy-dark);
+  }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .feature-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 28px;
+    transition: all 0.3s;
+  }
+
+  .feature-card:hover {
+    background: var(--bg-card-hover);
+    transform: translateY(-3px);
+  }
+
+  .feature-icon {
+    font-size: 1.8rem;
+    margin-bottom: 12px;
+  }
+
+  .feature-card h3 {
+    font-size: 1.05rem;
+    margin-bottom: 8px;
+  }
+
+  .feature-card p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+
+  /* Personas */
+  .personas-section {
+    background: linear-gradient(180deg, var(--bg) 0%, var(--navy-dark) 100%);
+  }
+
+  .personas-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .persona-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 32px;
+    text-align: center;
+    transition: all 0.3s;
+  }
+
+  .persona-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--coral);
+    box-shadow: 0 12px 40px rgba(255, 107, 107, 0.1);
+  }
+
+  .persona-card-create {
+    border-style: dashed;
+    border-color: var(--teal-dark);
+  }
+  .persona-card-create:hover {
+    border-color: var(--teal);
+    box-shadow: 0 12px 40px rgba(79, 209, 197, 0.1);
+  }
+
+  .persona-emoji {
+    font-size: 3rem;
+    margin-bottom: 12px;
+  }
+
+  .persona-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 4px;
+  }
+
+  .persona-role {
+    color: var(--coral);
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+  }
+
+  .persona-card > p:last-of-type {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+
+  .persona-tags {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    margin-top: 16px;
+    flex-wrap: wrap;
+  }
+
+  .persona-tags span {
+    background: var(--navy-light);
+    color: var(--teal);
+    padding: 3px 10px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+  }
+
+  /* Pipeline */
+  .pipeline {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .pipeline-step {
+    display: flex;
+    gap: 24px;
+    align-items: flex-start;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px;
+    transition: all 0.3s;
+  }
+
+  .pipeline-step:hover {
+    border-color: var(--teal-dark);
+    background: var(--bg-card-hover);
+  }
+
+  .step-number {
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    background: linear-gradient(135deg, var(--coral), var(--coral-dark));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 1.1rem;
+    color: #fff;
+  }
+
+  .step-content h3 {
+    font-size: 1.1rem;
+    margin-bottom: 4px;
+  }
+
+  .step-content p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+  }
+
+  .step-tech {
+    display: inline-block;
+    margin-top: 8px;
+    background: var(--navy-light);
+    color: var(--teal);
+    padding: 2px 10px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+
+  .pipeline-arrow {
+    text-align: center;
+    color: var(--teal);
+    font-size: 1.5rem;
+    padding: 8px 0;
+  }
+
+  .latency-note {
+    text-align: center;
+    margin-top: 40px;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    padding: 16px;
+    background: var(--bg-card);
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .latency-note strong {
+    color: var(--teal);
+  }
+
+  /* Roadmap */
+  .roadmap-section {
+    background: var(--navy-dark);
+  }
+
+  .roadmap-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+  }
+
+  .roadmap-phase {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 28px;
+    position: relative;
+  }
+
+  .roadmap-phase.active {
+    border-color: var(--coral);
+  }
+
+  .phase-badge {
+    display: inline-block;
+    background: var(--navy-light);
+    color: var(--teal);
+    padding: 3px 12px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  .roadmap-phase.active .phase-badge {
+    background: var(--coral);
+    color: #fff;
+  }
+
+  .roadmap-phase h3 {
+    font-size: 1.15rem;
+    margin-bottom: 16px;
+  }
+
+  .roadmap-phase ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .roadmap-phase li {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    padding-left: 18px;
+    position: relative;
+  }
+
+  .roadmap-phase li::before {
+    content: '○';
+    position: absolute;
+    left: 0;
+    color: var(--teal);
+  }
+
+  .roadmap-phase.active li::before {
+    content: '●';
+    color: var(--coral);
+  }
+
+  /* Blog */
+  .blog-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-bottom: 40px;
+  }
+
+  .blog-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.3s;
+    display: block;
+    color: inherit;
+  }
+
+  .blog-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--teal-dark);
+    color: inherit;
+  }
+
+  .blog-card-content {
+    padding: 28px;
+  }
+
+  .blog-card time {
+    color: var(--text-muted);
+    font-size: 0.8rem;
+  }
+
+  .blog-card h3 {
+    font-size: 1.15rem;
+    margin: 8px 0;
+  }
+
+  .blog-card p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+
+  .blog-cta {
+    text-align: center;
+  }
+
+  /* Community */
+  .community-section {
+    background: linear-gradient(180deg, var(--bg) 0%, var(--navy-dark) 100%);
+  }
+
+  .community-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-bottom: 40px;
+  }
+
+  .community-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 32px;
+    text-align: center;
+    transition: all 0.3s;
+    color: inherit;
+  }
+
+  .community-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--teal);
+    color: inherit;
+  }
+
+  .community-icon {
+    color: var(--teal);
+    margin-bottom: 16px;
+  }
+
+  .community-card h3 {
+    margin-bottom: 8px;
+  }
+
+  .community-card p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+  }
+
+  .community-cta {
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 1rem;
+  }
+
+  /* Responsive */
+  @media (max-width: 1024px) {
+    .features-grid, .personas-grid, .community-grid, .blog-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .roadmap-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .hero h1 {
+      font-size: 2.4rem;
+    }
+    .hero-stats {
+      flex-wrap: wrap;
+      gap: 24px;
+    }
+    .hero-buttons {
+      flex-direction: column;
+      align-items: center;
+    }
+    .about-grid, .features-grid, .personas-grid, .community-grid, .blog-grid, .roadmap-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

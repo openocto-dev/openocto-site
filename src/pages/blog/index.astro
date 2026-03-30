@@ -1,0 +1,105 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog')).sort(
+  (a: any, b: any) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
+);
+---
+
+<BaseLayout title="Blog — OpenOcto">
+  <main class="blog-page">
+    <div class="container">
+      <h1>Blog</h1>
+      <p class="blog-intro">Updates, guides, and insights from the OpenOcto project</p>
+      <div class="posts-grid">
+        {posts.map((post: any) => (
+          <a href={`/blog/${post.id}`} class="post-card">
+            <time datetime={post.data.date}>
+              {new Date(post.data.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+            </time>
+            <h2>{post.data.title}</h2>
+            <p>{post.data.description}</p>
+            {post.data.tags && (
+              <div class="post-tags">
+                {post.data.tags.map((tag: string) => <span class="tag">{tag}</span>)}
+              </div>
+            )}
+          </a>
+        ))}
+      </div>
+    </div>
+  </main>
+</BaseLayout>
+
+<style>
+  .blog-page {
+    padding-top: 120px;
+    padding-bottom: 80px;
+  }
+
+  .blog-page h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 8px;
+  }
+
+  .blog-intro {
+    color: var(--text-muted);
+    font-size: 1.15rem;
+    margin-bottom: 48px;
+  }
+
+  .posts-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .post-card {
+    display: block;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 32px;
+    transition: all 0.3s;
+    color: inherit;
+  }
+
+  .post-card:hover {
+    background: var(--bg-card-hover);
+    border-color: var(--teal-dark);
+    transform: translateY(-2px);
+    color: inherit;
+  }
+
+  .post-card time {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+  }
+
+  .post-card h2 {
+    font-size: 1.4rem;
+    margin: 8px 0;
+  }
+
+  .post-card p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .post-tags {
+    display: flex;
+    gap: 8px;
+    margin-top: 12px;
+  }
+
+  .tag {
+    background: var(--navy-light);
+    color: var(--teal);
+    padding: 3px 10px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+  }
+</style>

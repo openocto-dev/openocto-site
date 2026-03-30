@@ -1,0 +1,150 @@
+---
+import BaseLayout from './BaseLayout.astro';
+
+const { frontmatter } = Astro.props;
+---
+
+<BaseLayout title={`${frontmatter.title} — OpenOcto Blog`} description={frontmatter.description}>
+  <main class="blog-post">
+    <div class="container">
+      <a href="/blog" class="back-link">&larr; Back to Blog</a>
+      <article>
+        <header class="post-header">
+          <div class="post-meta">
+            <time datetime={frontmatter.date}>{new Date(frontmatter.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</time>
+            {frontmatter.tags && (
+              <div class="post-tags">
+                {frontmatter.tags.map((tag: string) => <span class="tag">{tag}</span>)}
+              </div>
+            )}
+          </div>
+          <h1>{frontmatter.title}</h1>
+          {frontmatter.description && <p class="post-description">{frontmatter.description}</p>}
+        </header>
+        <div class="post-content">
+          <slot />
+        </div>
+      </article>
+    </div>
+  </main>
+</BaseLayout>
+
+<style>
+  .blog-post {
+    padding-top: 120px;
+    padding-bottom: 80px;
+  }
+
+  .back-link {
+    display: inline-block;
+    color: var(--text-muted);
+    margin-bottom: 32px;
+    font-size: 0.9rem;
+  }
+  .back-link:hover { color: var(--teal); }
+
+  .post-header {
+    margin-bottom: 48px;
+    padding-bottom: 32px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .post-header h1 {
+    font-size: 2.8rem;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 16px;
+  }
+
+  .post-meta {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 20px;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+  }
+
+  .post-tags {
+    display: flex;
+    gap: 8px;
+  }
+
+  .tag {
+    background: var(--navy-light);
+    color: var(--teal);
+    padding: 3px 10px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+  }
+
+  .post-description {
+    color: var(--text-muted);
+    font-size: 1.2rem;
+    line-height: 1.6;
+  }
+
+  .post-content {
+    max-width: 720px;
+    font-size: 1.05rem;
+    line-height: 1.8;
+  }
+
+  .post-content :global(h2) {
+    font-size: 1.8rem;
+    margin: 48px 0 16px;
+  }
+
+  .post-content :global(h3) {
+    font-size: 1.4rem;
+    margin: 36px 0 12px;
+  }
+
+  .post-content :global(p) {
+    margin-bottom: 20px;
+  }
+
+  .post-content :global(ul), .post-content :global(ol) {
+    margin-bottom: 20px;
+    padding-left: 24px;
+  }
+
+  .post-content :global(li) {
+    margin-bottom: 8px;
+  }
+
+  .post-content :global(code) {
+    background: var(--navy-light);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 0.9em;
+  }
+
+  .post-content :global(pre) {
+    background: var(--navy-dark);
+    padding: 20px;
+    border-radius: 8px;
+    overflow-x: auto;
+    margin-bottom: 24px;
+    border: 1px solid var(--border);
+  }
+
+  .post-content :global(pre code) {
+    background: none;
+    padding: 0;
+  }
+
+  .post-content :global(blockquote) {
+    border-left: 3px solid var(--coral);
+    padding-left: 20px;
+    margin: 24px 0;
+    color: var(--text-muted);
+    font-style: italic;
+  }
+
+  @media (max-width: 768px) {
+    .post-header h1 {
+      font-size: 1.8rem;
+    }
+  }
+</style>
