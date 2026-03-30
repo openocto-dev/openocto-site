@@ -114,4 +114,4 @@ npm run preview  # Preview production build
 
 ## Author
 
-[Rocket Dev](https://rocketdev.io)
+[Rocket Dev](https://rocketdev.tech)

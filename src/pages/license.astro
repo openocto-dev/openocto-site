@@ -1,0 +1,67 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { LINKS } from '../consts';
+---
+
+<BaseLayout title="License — OpenOcto">
+
+<section class="license">
+  <div class="container">
+    <h1>License</h1>
+    <p class="lead">OpenOcto is free for personal use.</p>
+    <div class="license-body">
+      <p>
+        You can self-host it at home, use it at work internally,
+        study it, fork it, and contribute — all for free.
+      </p>
+      <p>
+        Commercial license is required only if you sell OpenOcto
+        as a product, offer it as a hosted service, or embed it
+        in hardware for sale.
+      </p>
+      <div class="license-links">
+        <p>Full license text: <a href={`${LINKS.github}/openocto/blob/main/LICENSE.md`} target="_blank" rel="noopener">GitHub</a></p>
+        <p>Questions: <a href="mailto:license@openocto.dev">license@openocto.dev</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</BaseLayout>
+
+<style>
+  .license {
+    padding-top: 140px;
+  }
+
+  .license h1 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 16px;
+  }
+
+  .lead {
+    font-size: 1.3rem;
+    color: var(--teal);
+    font-weight: 600;
+    margin-bottom: 32px;
+  }
+
+  .license-body p {
+    color: var(--text-muted);
+    font-size: 1.05rem;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    max-width: 640px;
+  }
+
+  .license-links {
+    margin-top: 40px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+  }
+
+  .license-links p {
+    margin-bottom: 8px;
+  }
+</style>
