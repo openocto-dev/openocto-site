@@ -310,6 +310,32 @@ const posts = (await getCollection('blog')).sort((a, b) => new Date(b.data.date)
   </div>
 </section>
 
+<!-- 6.5. Quick Start -->
+<section id="quick-start" class="quickstart-section">
+  <div class="container">
+    <h2 class="section-title">Get Started in Minutes</h2>
+    <p class="section-subtitle">One command installs everything — dependencies, models, config wizard</p>
+    <div class="quickstart-blocks">
+      <div class="qs-block">
+        <div class="qs-label">macOS / Linux</div>
+        <pre class="terminal"><code>curl -sSL https://raw.githubusercontent.com/openocto-dev/openocto/main/scripts/install.sh | bash</code></pre>
+      </div>
+      <div class="qs-block">
+        <div class="qs-label">Windows (PowerShell)</div>
+        <pre class="terminal"><code>irm https://raw.githubusercontent.com/openocto-dev/openocto/main/scripts/install.ps1 | iex</code></pre>
+      </div>
+      <div class="qs-block">
+        <div class="qs-label">Then launch</div>
+        <pre class="terminal terminal-run"><code>openocto start</code></pre>
+      </div>
+    </div>
+    <p class="qs-note">Already cloned the repo? Run <code>./scripts/install.sh</code> instead.</p>
+    <div class="qs-cta">
+      <a href={LINKS.github} class="btn btn-primary" target="_blank" rel="noopener">View on GitHub</a>
+    </div>
+  </div>
+</section>
+
 <!-- 7. Mac Mini -->
 <section id="setup" class="setup-section">
   <div class="container setup-container">
@@ -1169,6 +1195,75 @@ const posts = (await getCollection('blog')).sort((a, b) => new Date(b.data.date)
     .wizard-screenshots {
       grid-template-columns: 1fr;
     }
+  }
+
+  /* Quick Start */
+  .quickstart-section {
+    padding: 80px 0;
+    background: rgba(255, 255, 255, 0.02);
+  }
+
+  .quickstart-blocks {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    max-width: 760px;
+    margin: 0 auto 20px;
+  }
+
+  .qs-block {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .qs-label {
+    font-size: 0.78rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-text-muted, #8899aa);
+  }
+
+  .terminal {
+    background: #0d1117;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 14px 20px;
+    margin: 0;
+    overflow-x: auto;
+  }
+
+  .terminal code {
+    font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+    font-size: 0.9rem;
+    color: #c9d1d9;
+    white-space: pre;
+  }
+
+  .terminal-run code {
+    color: #7ee787;
+  }
+
+  .qs-note {
+    text-align: center;
+    font-size: 0.875rem;
+    color: var(--color-text-muted, #8899aa);
+    margin: 0;
+  }
+
+  .qs-note code {
+    background: rgba(255, 255, 255, 0.08);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+    color: #c9d1d9;
+  }
+
+  .qs-cta {
+    text-align: center;
+    margin-top: 28px;
   }
 </style>
 
