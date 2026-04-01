@@ -15,71 +15,77 @@ const posts = (await getCollection('blog')).sort((a, b) => new Date(b.data.date)
     <div class="hero-overlay"></div>
   </div>
   <div class="container hero-content">
-    <div class="hero-badge">Open Source &middot; Free for Personal Use</div>
-    <h1>
-      Build Your Own
-      <span class="hero-sparkle-wrap">
-        <svg id="ai-sparkle-svg" aria-label="AI Assistant" viewBox="0 0 540 82" xmlns="http://www.w3.org/2000/svg" style="overflow:visible;">
-          <defs>
-            <filter id="sparkle-glow-ai" x="-200%" y="-500%" width="500%" height="1100%">
-              <feGaussianBlur in="SourceGraphic" stdDeviation="2" result="b1"/>
-              <feGaussianBlur in="SourceGraphic" stdDeviation="7" result="b2"/>
-              <feGaussianBlur in="SourceGraphic" stdDeviation="16" result="b3"/>
-              <feMerge>
-                <feMergeNode in="b3"/>
-                <feMergeNode in="b2"/>
-                <feMergeNode in="b1"/>
-                <feMergeNode in="SourceGraphic"/>
-              </feMerge>
-            </filter>
-            <filter id="trail-glow-ai" x="-100%" y="-200%" width="300%" height="500%">
-              <feGaussianBlur in="SourceGraphic" stdDeviation="5" result="b"/>
-              <feMerge>
-                <feMergeNode in="b"/>
-                <feMergeNode in="SourceGraphic"/>
-              </feMerge>
-            </filter>
-          </defs>
-          <text id="ai-base" x="270" y="68"
-                text-anchor="middle"
-                font-family="Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, sans-serif"
-                font-weight="900" font-size="72" letter-spacing="-2"
-                fill="#ff6b6b">AI Assistant</text>
-          <text id="ai-trail" x="270" y="68"
-                text-anchor="middle"
-                font-family="Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, sans-serif"
-                font-weight="900" font-size="72" letter-spacing="-2"
-                fill="none" stroke="rgba(255,180,80,0.8)" stroke-width="3"
-                stroke-linecap="round"
-                filter="url(#trail-glow-ai)">AI Assistant</text>
-          <text id="ai-lead" x="270" y="68"
-                text-anchor="middle"
-                font-family="Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, sans-serif"
-                font-weight="900" font-size="72" letter-spacing="-2"
-                fill="none" stroke="rgba(255,255,255,0.95)" stroke-width="2"
-                stroke-linecap="round"
-                filter="url(#sparkle-glow-ai)">AI Assistant</text>
-        </svg>
-      </span>
-      with <span class="accent-teal">Personality</span>
-    </h1>
-    <p class="hero-text">
-      Open-source constructor for personal AI assistants with voice control,
-      persona system, and full local privacy. Choose character, voice, and brain — run it on your hardware.
-    </p>
-    <div class="hero-buttons">
-      <a href={LINKS.github} class="btn btn-primary" target="_blank" rel="noopener">
-        Get Started
-      </a>
-      <a href="#how-it-works" class="btn btn-secondary no-shimmer">
-        See How It Works
-      </a>
+    <div class="hero-left">
+      <div class="hero-badge">Open Source &middot; Free for Personal Use</div>
+      <h1>
+        Build Your Own
+        <span class="hero-sparkle-wrap">
+          <svg id="ai-sparkle-svg" aria-label="AI Assistant" viewBox="0 0 540 82" xmlns="http://www.w3.org/2000/svg" style="overflow:visible;">
+            <defs>
+              <filter id="sparkle-glow-ai" x="-200%" y="-500%" width="500%" height="1100%">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="2" result="b1"/>
+                <feGaussianBlur in="SourceGraphic" stdDeviation="7" result="b2"/>
+                <feGaussianBlur in="SourceGraphic" stdDeviation="16" result="b3"/>
+                <feMerge>
+                  <feMergeNode in="b3"/>
+                  <feMergeNode in="b2"/>
+                  <feMergeNode in="b1"/>
+                  <feMergeNode in="SourceGraphic"/>
+                </feMerge>
+              </filter>
+              <filter id="trail-glow-ai" x="-100%" y="-200%" width="300%" height="500%">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="5" result="b"/>
+                <feMerge>
+                  <feMergeNode in="b"/>
+                  <feMergeNode in="SourceGraphic"/>
+                </feMerge>
+              </filter>
+            </defs>
+            <text id="ai-base" x="270" y="68"
+                  text-anchor="middle"
+                  font-family="Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, sans-serif"
+                  font-weight="900" font-size="72" letter-spacing="-2"
+                  fill="#ff6b6b">AI Assistant</text>
+            <text id="ai-trail" x="270" y="68"
+                  text-anchor="middle"
+                  font-family="Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, sans-serif"
+                  font-weight="900" font-size="72" letter-spacing="-2"
+                  fill="none" stroke="rgba(255,180,80,0.8)" stroke-width="3"
+                  stroke-linecap="round"
+                  filter="url(#trail-glow-ai)">AI Assistant</text>
+            <text id="ai-lead" x="270" y="68"
+                  text-anchor="middle"
+                  font-family="Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, sans-serif"
+                  font-weight="900" font-size="72" letter-spacing="-2"
+                  fill="none" stroke="rgba(255,255,255,0.95)" stroke-width="2"
+                  stroke-linecap="round"
+                  filter="url(#sparkle-glow-ai)">AI Assistant</text>
+          </svg>
+        </span>
+        with <span class="accent-teal">Personality</span>
+      </h1>
+      <div class="hero-buttons">
+        <a href={LINKS.github} class="btn btn-primary" target="_blank" rel="noopener">
+          Get Started
+        </a>
+        <a href="#how-it-works" class="btn btn-secondary no-shimmer">
+          See How It Works
+        </a>
+      </div>
     </div>
-    <div class="hero-stats">
-      <div class="stat"><strong>100%</strong><span>Local Voice</span></div>
-      <div class="stat"><strong>6+</strong><span>Personas</span></div>
-      <div class="stat"><strong>5+</strong><span>AI Backends</span></div>
-      <div class="stat"><strong>3</strong><span>Platforms</span></div>
+    <div class="hero-right">
+      <div class="hero-info-card">
+        <p class="hero-text">
+          Open-source constructor for personal AI assistants with voice control,
+          persona system, and full local privacy. Choose character, voice, and brain — run it on your hardware.
+        </p>
+        <div class="hero-stats">
+          <div class="stat"><strong>100%</strong><span>Local Voice</span></div>
+          <div class="stat"><strong>6+</strong><span>Personas</span></div>
+          <div class="stat"><strong>5+</strong><span>AI Backends</span></div>
+          <div class="stat"><strong>3</strong><span>Platforms</span></div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -500,19 +506,51 @@ const posts = (await getCollection('blog')).sort((a, b) => new Date(b.data.date)
   .hero-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(
-      to bottom,
-      rgba(11, 20, 38, 0.7) 0%,
-      rgba(11, 20, 38, 0.85) 80%,
-      var(--bg) 100%
-    );
+    background:
+      linear-gradient(
+        to right,
+        rgba(11, 20, 38, 0.95) 0%,
+        rgba(11, 20, 38, 0.7) 40%,
+        rgba(11, 20, 38, 0.3) 60%,
+        rgba(11, 20, 38, 0.15) 100%
+      ),
+      linear-gradient(
+        to bottom,
+        transparent 0%,
+        transparent 80%,
+        var(--bg) 100%
+      );
   }
 
   .hero-content {
     position: relative;
     z-index: 1;
-    text-align: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
     padding: 60px 24px;
+    width: 100%;
+    min-height: calc(100vh - 80px);
+  }
+
+  .hero-left {
+    text-align: left;
+    align-self: start;
+    padding-top: 60px;
+  }
+
+  .hero-right {
+    display: flex;
+    justify-content: flex-end;
+    align-self: end;
+    padding-bottom: 60px;
+  }
+
+  .hero-info-card {
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 12px;
+    padding: 24px;
+    max-width: 440px;
   }
 
   .hero-badge {
@@ -531,7 +569,7 @@ const posts = (await getCollection('blog')).sort((a, b) => new Date(b.data.date)
     font-size: 4rem;
     font-weight: 900;
     line-height: 1.15;
-    margin-bottom: 24px;
+    margin-bottom: 32px;
   }
 
   .accent-coral { color: var(--coral); }
@@ -548,7 +586,6 @@ const posts = (await getCollection('blog')).sort((a, b) => new Date(b.data.date)
     width: 100%;
     max-width: 420px;
     height: auto;
-    margin: 0 auto;
   }
 
   @keyframes ai-sparkle-run {
@@ -562,23 +599,19 @@ const posts = (await getCollection('blog')).sort((a, b) => new Date(b.data.date)
 
   .hero-text {
     color: var(--text-muted);
-    font-size: 1.2rem;
-    max-width: 600px;
-    margin: 0 auto 36px;
+    font-size: 1.05rem;
+    margin: 0 0 28px;
     line-height: 1.7;
   }
 
   .hero-buttons {
     display: flex;
     gap: 16px;
-    justify-content: center;
-    margin-bottom: 60px;
   }
 
   .hero-stats {
     display: flex;
-    justify-content: center;
-    gap: 48px;
+    gap: 32px;
   }
 
   .stat {
@@ -589,13 +622,13 @@ const posts = (await getCollection('blog')).sort((a, b) => new Date(b.data.date)
   }
 
   .stat strong {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     font-weight: 800;
     color: var(--teal);
   }
 
   .stat span {
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     color: var(--text-muted);
   }
 
@@ -1173,6 +1206,28 @@ const posts = (await getCollection('blog')).sort((a, b) => new Date(b.data.date)
     }
   }
 
+  @media (max-width: 960px) {
+    .hero-content {
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
+    .hero-left {
+      text-align: center;
+    }
+    #ai-sparkle-svg {
+      margin: 0 auto;
+    }
+    .hero-buttons {
+      justify-content: center;
+    }
+    .hero-right {
+      justify-content: center;
+    }
+    .hero-info-card {
+      max-width: 100%;
+    }
+  }
+
   @media (max-width: 768px) {
     .hero h1 {
       font-size: 2.4rem;
@@ -1184,6 +1239,15 @@ const posts = (await getCollection('blog')).sort((a, b) => new Date(b.data.date)
     .hero-buttons {
       flex-direction: column;
       align-items: center;
+    }
+    .hero-overlay {
+      background:
+        linear-gradient(
+          to bottom,
+          rgba(11, 20, 38, 0.8) 0%,
+          rgba(11, 20, 38, 0.6) 50%,
+          var(--bg) 100%
+        );
     }
     .about-grid, .features-grid, .personas-grid, .community-grid, .blog-grid, .roadmap-grid {
       grid-template-columns: 1fr;
