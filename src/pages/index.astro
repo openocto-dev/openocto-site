@@ -324,18 +324,18 @@ const posts = (await getCollection('blog')).sort((a, b) => new Date(b.data.date)
     <div class="quickstart-blocks">
       <div class="qs-block">
         <div class="qs-label">macOS / Linux</div>
-        <pre class="terminal"><code>curl -sSL https://raw.githubusercontent.com/openocto-dev/openocto/main/scripts/install.sh | bash</code></pre>
+        <pre class="terminal"><code>curl -sSL https://raw.githubusercontent.com/openocto-dev/openocto/main/install.sh | bash</code></pre>
       </div>
       <div class="qs-block">
         <div class="qs-label">Windows (PowerShell)</div>
-        <pre class="terminal"><code>irm https://raw.githubusercontent.com/openocto-dev/openocto/main/scripts/install.ps1 | iex</code></pre>
+        <pre class="terminal"><code>irm https://raw.githubusercontent.com/openocto-dev/openocto/main/install.ps1 | iex</code></pre>
       </div>
       <div class="qs-block">
         <div class="qs-label">Then launch</div>
         <pre class="terminal terminal-run"><code>openocto start</code></pre>
       </div>
     </div>
-    <p class="qs-note">Already cloned the repo? Run <code>./scripts/install.sh</code> instead.</p>
+    <p class="qs-note">Already cloned the repo? Run <code>./install.sh</code> instead.</p>
     <div class="qs-cta">
       <a href={LINKS.github} class="btn btn-primary" target="_blank" rel="noopener">View on GitHub</a>
     </div>
