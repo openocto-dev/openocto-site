@@ -1,0 +1,391 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Terms of Service — OpenOcto">
+
+<section class="legal">
+  <div class="container">
+    <h1>Terms of Service</h1>
+    <p class="legal-meta">Effective date: April 5, 2026 &middot; Last updated: April 5, 2026</p>
+
+    <div class="legal-body">
+
+      <h2>1. Acceptance of Terms</h2>
+      <p>
+        By installing, accessing, or using the OpenOcto software and its web administration panel
+        (collectively, the "Service"), you acknowledge that you have read, understood, and agree to be
+        bound by these Terms of Service ("Terms"). If you do not agree to all of these Terms, you must
+        immediately cease using the Service and remove it from your device.
+      </p>
+      <p>
+        Your continued use of the Service after any modifications to these Terms constitutes acceptance
+        of the updated Terms.
+      </p>
+
+      <h2>2. Description of Service</h2>
+      <p>
+        OpenOcto is a self-hosted, open-source personal AI assistant constructor with voice control and
+        a persona system. The Service is designed to run locally on user-owned hardware and provides:
+      </p>
+      <ul>
+        <li>Voice-controlled interaction with AI language models</li>
+        <li>A web-based administration panel for configuration and monitoring</li>
+        <li>Integration with third-party AI backends (Anthropic Claude, OpenAI, Ollama, and other providers)</li>
+        <li>Text-to-speech and speech-to-text capabilities</li>
+        <li>Configurable AI personas with customizable behavior</li>
+      </ul>
+      <p>
+        The Service acts as an <strong>intermediary layer</strong> between the user and third-party AI models.
+        OpenOcto does not independently generate AI responses -- all AI-generated content originates from
+        the configured third-party AI backends.
+      </p>
+
+      <h2>3. License</h2>
+      <p>
+        OpenOcto is distributed under the <a href="/license">Business Source License 1.1 (BSL 1.1)</a>.
+        You may use the software for personal, non-commercial purposes, including self-hosting for private use,
+        internal organizational use, education, and research. Commercial use requires a separate commercial
+        license from the Licensor.
+      </p>
+
+      <h2>4. AI-Generated Content Disclaimer</h2>
+      <div class="legal-important">
+        <p><strong>THIS IS THE MOST IMPORTANT SECTION OF THESE TERMS. PLEASE READ IT CAREFULLY.</strong></p>
+      </div>
+
+      <h3>4.1. Nature of AI Responses</h3>
+      <p>
+        The Service facilitates interaction with artificial intelligence language models. All responses generated
+        through the Service are produced by third-party AI systems and are <strong>probabilistic in nature</strong>
+        -- they may be inaccurate, incomplete, misleading, biased, or entirely fabricated ("hallucinations").
+        AI-generated content does not represent the views, opinions, or recommendations of OpenOcto, its developers,
+        or the Licensor.
+      </p>
+
+      <h3>4.2. No Professional Advice</h3>
+      <p>AI-generated responses provided through the Service <strong>DO NOT</strong> constitute and must not be relied upon as:</p>
+      <ul>
+        <li><strong>Medical or health advice.</strong> Do not use AI responses to diagnose, treat, prevent, or cure any medical condition. Always consult a qualified healthcare professional. In case of a medical emergency, contact emergency services immediately.</li>
+        <li><strong>Financial, investment, or tax advice.</strong> Do not make financial decisions based on AI responses. Always consult a licensed financial advisor, accountant, or tax professional.</li>
+        <li><strong>Legal advice.</strong> Do not rely on AI responses for legal decisions or compliance matters. Always consult a qualified attorney.</li>
+        <li><strong>Psychological or mental health counseling.</strong> AI responses are not a substitute for professional psychological help. If you are experiencing a mental health crisis, contact a crisis helpline or mental health professional immediately.</li>
+        <li><strong>Safety-critical guidance.</strong> Do not rely on AI responses for decisions that may affect physical safety.</li>
+        <li><strong>Professional engineering, architectural, or scientific advice.</strong> Do not use AI responses as a basis for professional determinations.</li>
+        <li><strong>Educational authority.</strong> AI responses used in educational contexts may contain factual errors and must not be treated as authoritative educational material.</li>
+      </ul>
+
+      <h3>4.3. User Responsibility for AI Content</h3>
+      <p>You acknowledge and agree that:</p>
+      <ul>
+        <li>You are <strong>solely responsible</strong> for evaluating and verifying any AI-generated content before acting upon it.</li>
+        <li>You must exercise your own independent judgment before making any decisions based on AI responses.</li>
+        <li>AI responses may contain errors, outdated information, or content that is inappropriate for your specific circumstances.</li>
+        <li>The Licensor has no control over the content generated by third-party AI models and cannot guarantee its accuracy, completeness, safety, or suitability for any particular purpose.</li>
+      </ul>
+
+      <h3>4.4. Persona Behavior</h3>
+      <p>
+        The AI personas available in the Service (Hestia, Metis, Nestor, Sofia, Argus, Octo, and others) are
+        stylistic configurations that influence the tone and style of AI responses. Personas do not change the
+        fundamental nature of AI-generated content and are subject to all disclaimers in this section. A persona
+        presenting as "caring" or "wise" does not make its responses valid professional advice. A persona
+        configured for children (e.g., Nestor "Wise Mentor") does not guarantee that all AI responses will be
+        appropriate for minors. Parental supervision is required at all times when minors use the Service.
+      </p>
+
+      <h2>5. Privacy and Data</h2>
+
+      <h3>5.1. Local Processing</h3>
+      <p>
+        OpenOcto is designed with a privacy-first approach. By default, all data -- including voice recordings,
+        conversation history, user configuration, and personal information -- is processed and stored locally
+        on your device.
+      </p>
+
+      <h3>5.2. Third-Party Data Transmission</h3>
+      <p>
+        When you configure external AI backends (such as Anthropic Claude, OpenAI, or other providers), your
+        text queries and conversation history are transmitted to those providers' servers. This data transmission is:
+      </p>
+      <ul>
+        <li>Initiated solely by your configuration choices</li>
+        <li>Governed by the respective privacy policies and terms of the third-party providers</li>
+        <li>Outside the control and responsibility of OpenOcto</li>
+      </ul>
+      <p>
+        You are responsible for reviewing and understanding the privacy policies of any third-party AI provider
+        you configure.
+      </p>
+
+      <h3>5.3. Voice Data</h3>
+      <p>
+        Voice recordings captured by the Service are processed locally for speech-to-text conversion. Audio data
+        is not stored permanently unless you explicitly configure such behavior. The Licensor does not collect,
+        access, or process your voice data.
+      </p>
+
+      <h3>5.4. Children's Data</h3>
+      <p>
+        The Service does not knowingly collect personal information from children under the age of 16. All data
+        processing occurs locally on user-owned hardware. However, when third-party AI backends are configured,
+        text queries -- including those made by minors -- are transmitted to those providers. Parents and legal
+        guardians are responsible for reviewing the privacy policies of configured AI providers.
+      </p>
+
+      <h2>6. User Responsibilities</h2>
+      <ul>
+        <li>You are solely responsible for securing access to your OpenOcto instance, including the web admin panel, network configuration, and all associated passwords and credentials.</li>
+        <li>You are responsible for safeguarding any API keys and credentials you configure within the Service.</li>
+        <li>You must not use the Service for any unlawful, harmful, abusive, threatening, harassing, defamatory, or otherwise objectionable purpose.</li>
+        <li>You must not use the Service to generate content that violates applicable laws or the terms of service of the configured AI providers.</li>
+        <li>You must not use the Service in any manner that could harm minors.</li>
+        <li>You are responsible for compliance with all applicable local, national, and international laws and regulations.</li>
+      </ul>
+
+      <h2>7. Third-Party Services and Dependencies</h2>
+
+      <h3>7.1. AI Providers</h3>
+      <p>
+        OpenOcto integrates with third-party AI services including, but not limited to, Anthropic Claude, OpenAI,
+        and Ollama-compatible providers. Your use of these services is governed by their respective terms of service
+        and privacy policies. The Licensor is not affiliated with, endorsed by, or responsible for any third-party
+        AI provider.
+      </p>
+
+      <h3>7.2. Open-Source Components</h3>
+      <p>
+        The Service incorporates open-source components (including but not limited to Piper TTS, Silero TTS,
+        Silero VAD, whisper.cpp, OpenWakeWord) which are subject to their own respective licenses. The Licensor
+        makes no warranties regarding the functionality, accuracy, or safety of these components.
+      </p>
+
+      <h3>7.3. Availability</h3>
+      <p>
+        The Licensor does not guarantee the availability, uptime, or functionality of any third-party services.
+        Changes to third-party APIs, pricing, or terms may affect the functionality of the Service without notice.
+      </p>
+
+      <h2>8. Disclaimer of Warranties</h2>
+      <p class="legal-caps">
+        TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, THE SERVICE IS PROVIDED ON AN "AS IS" AND "AS AVAILABLE"
+        BASIS, WITHOUT WARRANTIES OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO: IMPLIED
+        WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, NON-INFRINGEMENT, ACCURACY OR RELIABILITY
+        OF AI-GENERATED CONTENT, SECURITY OR UNINTERRUPTED OPERATION, COMPATIBILITY WITH YOUR HARDWARE OR SOFTWARE,
+        AND FREEDOM FROM ERRORS, BUGS, OR VULNERABILITIES.
+      </p>
+      <p class="legal-caps">
+        THE LICENSOR DOES NOT WARRANT THAT AI-GENERATED CONTENT WILL BE ACCURATE, COMPLETE, RELIABLE, OR SUITABLE
+        FOR ANY PURPOSE; THAT THE SERVICE WILL MEET YOUR REQUIREMENTS; THAT THE SERVICE WILL OPERATE WITHOUT
+        INTERRUPTION OR ERROR; THAT ANY DEFECTS WILL BE CORRECTED; THAT THE SERVICE IS FREE OF VIRUSES OR OTHER
+        HARMFUL COMPONENTS; THAT VOICE RECOGNITION OR SPEECH SYNTHESIS WILL BE ACCURATE; OR THAT CONTENT FILTERING
+        WILL PREVENT ALL INAPPROPRIATE CONTENT FROM BEING GENERATED.
+      </p>
+
+      <h2>9. Limitation of Liability</h2>
+
+      <h3>9.1. Exclusion of Damages</h3>
+      <p class="legal-caps">
+        IN NO EVENT SHALL THE LICENSOR, ITS FOUNDERS, DEVELOPERS, CONTRIBUTORS, AFFILIATES, OR AGENTS BE LIABLE
+        FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES; LOSS OF PROFITS, REVENUE,
+        DATA, GOODWILL, OR BUSINESS OPPORTUNITIES; PERSONAL INJURY OR PROPERTY DAMAGE; EMOTIONAL DISTRESS OR
+        PSYCHOLOGICAL HARM; OR COST OF PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES -- ARISING OUT OF OR IN CONNECTION
+        WITH YOUR USE OF, OR INABILITY TO USE, THE SERVICE, REGARDLESS OF THE THEORY OF LIABILITY, EVEN IF THE
+        LICENSOR HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
+      </p>
+
+      <h3>9.2. Specific Exclusions</h3>
+      <p>Without limiting the generality of the above, the Licensor expressly disclaims any liability for:</p>
+      <ul>
+        <li><strong>Harm resulting from reliance on AI-generated content</strong>, including medical harm, financial losses, legal consequences, property damage, or personal injury</li>
+        <li><strong>Actions taken or not taken</strong> based on information provided by AI models through the Service</li>
+        <li><strong>Incorrect, misleading, or harmful AI responses</strong>, including AI "hallucinations"</li>
+        <li><strong>Data loss or corruption</strong> resulting from use of the Service</li>
+        <li><strong>Security breaches</strong> resulting from improper configuration or exposure of the Service to the internet</li>
+        <li><strong>Damages arising from third-party AI provider</strong> failures, outages, or policy changes</li>
+        <li><strong>Hardware damage</strong> resulting from extended operation of the Service</li>
+        <li><strong>Harm to minors</strong> resulting from AI-generated content, regardless of persona or content filtering configuration</li>
+        <li><strong>Educational harm</strong> resulting from minors learning or relying on incorrect information provided by AI models</li>
+      </ul>
+
+      <h3>9.3. Maximum Liability</h3>
+      <p class="legal-caps">
+        IN JURISDICTIONS THAT DO NOT ALLOW THE COMPLETE EXCLUSION OF LIABILITY, THE LICENSOR'S TOTAL CUMULATIVE
+        LIABILITY TO YOU FOR ALL CLAIMS ARISING OUT OF OR RELATING TO THESE TERMS OR THE SERVICE SHALL NOT EXCEED
+        THE GREATER OF: (A) THE AMOUNT YOU HAVE PAID TO THE LICENSOR FOR USE OF THE SERVICE IN THE TWELVE (12)
+        MONTHS PRECEDING THE CLAIM, OR (B) ONE HUNDRED US DOLLARS (USD $100.00).
+      </p>
+
+      <h2>10. Indemnification</h2>
+      <p>
+        You agree to indemnify, defend, and hold harmless the Licensor, its founders, developers, contributors,
+        and affiliates from and against any and all claims, damages, losses, liabilities, costs, and expenses
+        (including reasonable attorneys' fees) arising out of or relating to:
+      </p>
+      <ul>
+        <li>Your use or misuse of the Service</li>
+        <li>Your reliance on AI-generated content</li>
+        <li>Your violation of these Terms</li>
+        <li>Your violation of any applicable law or regulation</li>
+        <li>Your violation of any third-party rights</li>
+        <li>Content you submit to or generate through the Service</li>
+        <li>Any minor's use of the Service under your supervision or on your devices</li>
+      </ul>
+
+      <h2>11. Age Restrictions and Minors</h2>
+
+      <h3>11.1. Age Requirement</h3>
+      <p>
+        The Service is not intended for independent use by individuals under the age of 16 (or the applicable
+        age of digital consent in your jurisdiction). If you are under 16, you may only use the Service under
+        the direct supervision of a parent or legal guardian who has reviewed and accepted these Terms.
+      </p>
+
+      <h3>11.2. Parental Responsibility</h3>
+      <p>Parents and legal guardians who allow minors to use the Service acknowledge and agree that:</p>
+      <ul>
+        <li>They are <strong>solely responsible</strong> for supervising the minor's interaction with the Service at all times</li>
+        <li>AI-generated content may not always be age-appropriate despite persona configurations or content filtering settings</li>
+        <li>Features designed for younger audiences (such as "Kids Mode", child-oriented personas, or educational features) are <strong>convenience features only</strong> and DO NOT guarantee content safety, accuracy, or appropriateness</li>
+        <li>They will not hold the Licensor responsible for any content generated by third-party AI models during the minor's use of the Service</li>
+        <li>They are responsible for configuring appropriate content restrictions on the AI backend level</li>
+        <li>They assume all risk associated with a minor's use of the Service</li>
+      </ul>
+
+      <h3>11.3. No Child Safety Guarantee</h3>
+      <p>
+        The Licensor does not and cannot guarantee that AI-generated content will be safe, appropriate, or suitable
+        for minors under any circumstances. Content filtering and persona configurations are best-effort features
+        that rely on third-party AI model behavior, which is outside the Licensor's control.
+      </p>
+
+      <h3>11.4. Compliance with Child Protection Laws</h3>
+      <p>
+        The Service is self-hosted software and does not collect personal information from children. However,
+        third-party AI providers configured by the user may have their own policies regarding minors. Users are
+        solely responsible for ensuring compliance with all applicable child protection laws, including but not
+        limited to COPPA (United States), GDPR Article 8 (European Union), Federal Law No. 436-FZ (Russian
+        Federation), and any other applicable legislation.
+      </p>
+
+      <h2>12. Modifications to the Service and Terms</h2>
+      <p>
+        The Licensor reserves the right to modify, suspend, or discontinue any aspect of the Service at any time,
+        without notice and without liability. The Licensor reserves the right to modify these Terms at any time.
+        Your continued use of the Service after the posting of modified Terms constitutes acceptance of the changes.
+      </p>
+
+      <h2>13. Governing Law and Dispute Resolution</h2>
+      <p>
+        These Terms shall be governed by and construed in accordance with the laws of the Russian Federation,
+        without regard to its conflict of law provisions. Any dispute arising out of or relating to these Terms
+        or the Service shall be resolved exclusively in the courts of Moscow, Russian Federation. For users
+        outside the Russian Federation, disputes may also be resolved in the courts of the user's jurisdiction
+        if required by mandatory provisions of applicable consumer protection law.
+      </p>
+
+      <h2>14. Severability</h2>
+      <p>
+        If any provision of these Terms is held to be invalid, illegal, or unenforceable, such invalidity shall
+        not affect any other provision, and the remaining provisions shall continue in full force and effect.
+      </p>
+
+      <h2>15. Entire Agreement</h2>
+      <p>
+        These Terms, together with the <a href="/license">License</a> and any other legal notices published
+        through the Service, constitute the entire agreement between you and the Licensor regarding your use
+        of the Service.
+      </p>
+
+      <h2>16. No Waiver</h2>
+      <p>
+        The failure of the Licensor to enforce any provision of these Terms shall not constitute a waiver of
+        that provision or any other provision.
+      </p>
+
+      <h2>17. Contact</h2>
+      <p>
+        For questions about these Terms, contact: <a href="mailto:info@openocto.dev">info@openocto.dev</a>
+      </p>
+      <p>
+        <strong>Licensor:</strong> Rocket Dev (<a href="https://rocketdev.tech" target="_blank" rel="noopener">rocketdev.tech</a>)
+      </p>
+    </div>
+  </div>
+</section>
+
+</BaseLayout>
+
+<style>
+  .legal {
+    padding-top: 140px;
+    padding-bottom: 80px;
+  }
+
+  .legal h1 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 12px;
+  }
+
+  .legal-meta {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-bottom: 40px;
+  }
+
+  .legal-body {
+    max-width: 700px;
+  }
+
+  .legal-body h2 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-top: 40px;
+    margin-bottom: 16px;
+  }
+
+  .legal-body h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-top: 24px;
+    margin-bottom: 12px;
+  }
+
+  .legal-body p {
+    color: var(--text-muted);
+    font-size: 1rem;
+    line-height: 1.8;
+    margin-bottom: 16px;
+  }
+
+  .legal-body ul, .legal-body ol {
+    color: var(--text-muted);
+    font-size: 1rem;
+    line-height: 1.8;
+    padding-left: 24px;
+    margin-bottom: 16px;
+  }
+
+  .legal-body li {
+    margin-bottom: 6px;
+  }
+
+  .legal-caps {
+    font-size: 0.9rem !important;
+    letter-spacing: 0.01em;
+  }
+
+  .legal-important {
+    background: rgba(255, 107, 107, 0.1);
+    border: 1px solid rgba(255, 107, 107, 0.3);
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin-bottom: 24px;
+  }
+
+  .legal-important p {
+    margin-bottom: 0;
+    color: var(--coral, #ff6b6b);
+  }
+</style>

@@ -241,23 +241,85 @@ const posts = (await getCollection('blog')).sort((a, b) => new Date(b.data.date)
   </div>
 </section>
 
-<!-- 5. Setup Wizard -->
+<!-- 5. Admin UI Gallery -->
 <section id="wizard" class="wizard-section">
   <div class="container">
-    <h2 class="section-title">Visual Setup Wizard</h2>
-    <p class="section-subtitle">Not another CLI tool. A real visual experience — because your assistant should feel personal from the first minute.</p>
-    <div class="wizard-screenshots">
-      <div class="wizard-screenshot">
-        <div class="screenshot-label">Step 1 — Choose your persona</div>
-        <img src="/images/hero-banner-webadmin1.jpg" alt="OpenOcto setup wizard — choose persona" />
+    <h2 class="section-title">Web Admin Panel</h2>
+    <p class="section-subtitle">Full-featured browser UI — manage personas, messages, memory, voice calibration and AI backend from one place.</p>
+    <div class="admin-slider">
+      <div class="admin-slider-track" id="adminSliderTrack">
+        <div class="admin-slide active">
+          <div class="screenshot-label">Dashboard — pipeline state, stats &amp; activity</div>
+          <img src="/images/admin-dashboard.jpeg" alt="OpenOcto admin — dashboard" loading="lazy" />
+        </div>
+        <div class="admin-slide">
+          <div class="screenshot-label">Configuration — AI backend, STT, TTS and persona</div>
+          <img src="/images/admin-config.jpeg" alt="OpenOcto admin — configuration" loading="lazy" />
+        </div>
+        <div class="admin-slide">
+          <div class="screenshot-label">Memory — user facts, active notes and summaries</div>
+          <img src="/images/admin-memory.jpeg" alt="OpenOcto admin — memory" loading="lazy" />
+        </div>
+        <div class="admin-slide">
+          <div class="screenshot-label">Settings — theme, language and display preferences</div>
+          <img src="/images/admin-settings.jpeg" alt="OpenOcto admin — settings" loading="lazy" />
+        </div>
+        <div class="admin-slide">
+          <div class="screenshot-label">Mic Calibration — silence and speech VAD thresholds</div>
+          <img src="/images/admin-calibration.jpeg" alt="OpenOcto admin — mic calibration" loading="lazy" />
+        </div>
+        <div class="admin-slide">
+          <div class="screenshot-label">Setup Wizard — guided onboarding in minutes</div>
+          <img src="/images/admin-wizard.jpeg" alt="OpenOcto admin — setup wizard" loading="lazy" />
+        </div>
       </div>
-      <div class="wizard-screenshot">
-        <div class="screenshot-label">Step 2 — Configure voice & wake word</div>
-        <img src="/images/hero-banner-webadmin2.jpg" alt="OpenOcto setup wizard — configure voice" />
-      </div>
+      <button class="slider-btn slider-prev" id="sliderPrev" aria-label="Previous">&#8592;</button>
+      <button class="slider-btn slider-next" id="sliderNext" aria-label="Next">&#8594;</button>
+      <div class="slider-dots" id="sliderDots"></div>
     </div>
   </div>
 </section>
+
+<script>
+  (function() {
+    const track = document.getElementById('adminSliderTrack');
+    const slides = track ? Array.from(track.querySelectorAll('.admin-slide')) : [];
+    const dotsContainer = document.getElementById('sliderDots');
+    const prevBtn = document.getElementById('sliderPrev');
+    const nextBtn = document.getElementById('sliderNext');
+    let current = 0;
+    let autoTimer: ReturnType<typeof setInterval>;
+
+    function goTo(idx: number) {
+      slides[current].classList.remove('active');
+      dots[current].classList.remove('active');
+      current = (idx + slides.length) % slides.length;
+      slides[current].classList.add('active');
+      dots[current].classList.add('active');
+    }
+
+    // Build dots
+    const dots: HTMLElement[] = [];
+    slides.forEach((_, i) => {
+      const d = document.createElement('button');
+      d.className = 'slider-dot' + (i === 0 ? ' active' : '');
+      d.setAttribute('aria-label', `Slide ${i + 1}`);
+      d.addEventListener('click', () => { goTo(i); resetAuto(); });
+      dotsContainer?.appendChild(d);
+      dots.push(d);
+    });
+
+    function resetAuto() {
+      clearInterval(autoTimer);
+      autoTimer = setInterval(() => goTo(current + 1), 4000);
+    }
+
+    prevBtn?.addEventListener('click', () => { goTo(current - 1); resetAuto(); });
+    nextBtn?.addEventListener('click', () => { goTo(current + 1); resetAuto(); });
+
+    resetAuto();
+  })();
+</script>
 
 <!-- 6. How It Works -->
 <section id="how-it-works">
@@ -1155,21 +1217,36 @@ const posts = (await getCollection('blog')).sort((a, b) => new Date(b.data.date)
     font-weight: 700;
   }
 
-  /* Setup Wizard */
+  /* Admin UI Gallery / Slider */
   .wizard-section {
     background: var(--navy-dark);
   }
 
-  .wizard-screenshots {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 32px;
+  .admin-slider {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
   }
 
-  .wizard-screenshot {
-    display: flex;
+  .admin-slider-track {
+    position: relative;
+    width: 100%;
+  }
+
+  .admin-slide {
+    display: none;
     flex-direction: column;
-    gap: 14px;
+    gap: 16px;
+    animation: slideFadeIn 0.4s ease;
+  }
+
+  .admin-slide.active {
+    display: flex;
+  }
+
+  @keyframes slideFadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: translateY(0); }
   }
 
   .screenshot-label {
@@ -1184,16 +1261,62 @@ const posts = (await getCollection('blog')).sort((a, b) => new Date(b.data.date)
     align-self: center;
   }
 
-  .wizard-screenshot img {
+  .admin-slide img {
     width: 100%;
     border-radius: 12px;
     border: 1px solid var(--border);
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
-    transition: transform 0.3s;
   }
 
-  .wizard-screenshot img:hover {
-    transform: scale(1.02);
+  .slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    color: var(--text-primary);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s, border-color 0.2s;
+    z-index: 2;
+  }
+
+  .slider-btn:hover {
+    background: var(--teal);
+    border-color: var(--teal);
+    color: #000;
+  }
+
+  .slider-prev { left: -52px; }
+  .slider-next { right: -52px; }
+
+  .slider-dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 24px;
+  }
+
+  .slider-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    border: none;
+    background: var(--border);
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+    padding: 0;
+  }
+
+  .slider-dot.active {
+    background: var(--teal);
+    transform: scale(1.3);
   }
 
   /* Responsive */
@@ -1256,9 +1379,8 @@ const posts = (await getCollection('blog')).sort((a, b) => new Date(b.data.date)
       grid-template-columns: 1fr;
       gap: 32px;
     }
-    .wizard-screenshots {
-      grid-template-columns: 1fr;
-    }
+    .slider-prev { left: -16px; }
+    .slider-next { right: -16px; }
   }
 
   /* Quick Start */
